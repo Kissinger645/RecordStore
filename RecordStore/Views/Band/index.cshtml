@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "index";
+}
+
+<h2>Band Page</h2>
+
+@using (Html.BeginForm("Create", "Band"))
+{
+    <p>
+        @Html.TextBox("BandName", "", new { @class = "form-control", placeholder = "Band name" })
+    </p>
+    <p>
+        <input type="submit" class="btn btn-default" value="Add New Band" />
+    </p>
+}
+
+
+
+<table class="table-striped">
+    <thead>
+   <tr><th>Artist</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var band in ViewBag.AllBands)
+        {
+            <tr><td>@band.BandName</td></tr>
+        }
+
+    </tbody>
+
+</table>
