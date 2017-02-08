@@ -1,8 +1,26 @@
-﻿@{
+﻿@model IEnumerable<RecordStore.Models.Band>
+    
+@{
+
     ViewBag.Title = "Home Page";
+}
+<div><p></p></div>
+<h4>
+        @using (Html.BeginForm())
+        {
+            <p>
+                Find Band or Album Title: @Html.TextBox("searchBox1")
+                <input type="submit" placeholder="Search" />
+            </p>
+        }
+</h4>
+@foreach (var album in ViewBag.FindBand)
+{
+    <h5>
+        <div class="row">
+            @album.Band.BandName - @album.AlbumTitle
+        </div>
+    </h5>
 }
 
 
-<div>
-
-</div>

@@ -2,31 +2,36 @@
 @{
     ViewBag.Title = "index";
 }
+<div>
+    <h2>Band Page</h2>
 
-<h2>Band Page</h2>
+    @using (Html.BeginForm("Create", "Band"))
+    {
+        <p>
+            @Html.TextBox("BandName", "", new { @class = "form-control", placeholder = "Band name" })
+        </p>
+        <p>
+            <input type="submit" class="btn btn-default" value="Add New Band" />
+        </p>
 
-@using (Html.BeginForm("Create", "Band"))
-{
-    <p>
-        @Html.TextBox("BandName", "", new { @class = "form-control", placeholder = "Band name" })
-    </p>
-    <p>
-        <input type="submit" class="btn btn-default" value="Add New Band" />
-    </p>
-}
+    }
+    
+       <table class="table-striped">
+        <thead>
+            <tr><th>Artist</th></tr>
+        </thead>
+        <tbody>
+    @foreach (var band in ViewBag.AllBands)
+            {
+        <tr>
+            <td>@band.BandName</td>
+            <td>
+              (@Html.ActionLink("Delete", "Delete", new { id = band.Id }))               
+            </td>
+        </tr>
+    }
 
+        </tbody>
 
-
-<table class="table-striped">
-    <thead>
-   <tr><th>Artist</th></tr>
-    </thead>
-    <tbody>
-        @foreach (var band in ViewBag.AllBands)
-        {
-            <tr><td>@band.BandName</td></tr>
-        }
-
-    </tbody>
-
-</table>
+    </table>
+</div>

@@ -19,11 +19,10 @@
                 @Html.ActionLink("Music Store", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    
+                <ul class="nav navbar-nav">                    
                     <li>@Html.ActionLink("Bands", "Index", "Band")</li>
                     <li>@Html.ActionLink("Albums", "Index", "Album")</li>
-                    
+                    <li>@Html.ActionLink("Add Album", "Create", "Album")</li>                
                 </ul>
             </div>
         </div>
